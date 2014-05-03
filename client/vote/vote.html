@@ -1,0 +1,106 @@
+<template name="vote">
+  <div class="container">
+    <div class="row">
+
+      <header class="text-center col-md-12">
+        <h1 class="text-left"><small>Vote</small></h1>
+        <h2 class="h1">{{vote.title}}</h2>
+      </header>
+
+    </div>
+
+    {{#each vote.details}}
+    <h4 class="text-center col-md-12">{{question}}</h4> 
+    <div role="main" class="row margin-medium-bottom" id="survey">
+      
+        {{#each optionCount}} 
+          <div class="col-md-1 col-md-offset-2 margin-medium-vertical" style="margin-top:30px">
+            {{option}} 
+          </div>
+          <div class="col-md-6">
+            <div class="progress margin-medium-vertical">
+              <div class="progress-bar text-right" style="width: {{perc ../total count}}%;">
+                <span class="progress-bar-candidate">{{count}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-1">
+            <a href="/voteB" class="btn btn-primary btn-lg btn-block vote">+1</a>
+          </div>
+        {{/each}}
+    </div>
+    {{/each}}
+
+
+    <div class="row margin-medium-vertical">
+      <div class="col-md-7 col-md-offset-3">
+        <div class="panel panel-default">
+
+          <p class="panel-heading text-center">
+            <small>
+              Total: <strong>Edison</strong> 197 &ndash; 221 <strong>Tesla</strong>
+            </small>
+          </p>
+
+          <div class="panel-body">
+            <ul class="list-unstyled">
+              <li>
+                <p>
+                  <span class="label label-default col-sm-1">Nick</span>&nbsp;
+                  <em>I know for sure Mr. Tesla should win this duel.</em> &middot; +1 Tesla
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span class="label label-default col-sm-1">T.J.</span>&nbsp;
+                  <em>Dad says Mr. Edison is the smartest guy in the city.</em> &middot; +1 Edison
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span class="label label-default col-sm-1">John</span>&nbsp;
+                  <em>The boss... Uhm... a friend of mine asked me to come and vote for Mr. E</em> &middot; +1 Edison
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span class="label label-default col-sm-1">Elon</span>&nbsp;
+                  <em>I like Tesla, good name.</em> &middot; +1 Tesla
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span class="label label-default col-sm-1">Pidgeon</span>&nbsp;
+                  <em><3 <3 <3</em> &middot; +1 Tesla
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <p><a href="/more">More <span class="icon icon-ellipsis-horizontal"></span></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <footer class="col-md-12">
+
+        <ul class="pager">
+          <li class="previous">
+            <a href="/results">JSON</a>
+          </li>
+          <li class="next">
+            <a href="/disclaimer.html">About</a>
+          </li>
+        </ul>
+
+        <p class="clearfix text-center">
+          <small>&copy; <a href="#">ACME, inc</a> 2013</small>
+        </p>
+
+      </footer>
+    </div>
+  </div> <!-- /container -->
+</template>

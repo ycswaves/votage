@@ -1,0 +1,88 @@
+#survey .progress {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  #survey .progress img {
+    margin-top: -5px;
+  }
+
+  #survey .progress .progress-bar {
+    font-size: 20px;
+    font-family: "Yanone Kaffeesatz", Georgia, serif;
+    line-height: inherit;
+  }
+
+  #survey .progress .progress-bar.text-left {
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  #survey .progress .progress-bar.text-right {
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  #survey .vote {
+    font-family: "Yanone Kaffeesatz", Georgia, serif;
+    line-height: 30px;
+    margin-top: 18px; 
+    /* (( 110[height .progress] - 92[height .btn-lg .vote] ) / 2 ) 
+    + 20px margin-top .progress */
+  }
+
+  .margin-medium-vertical {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .margin-medium-bottom {
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+
+  .progress-bar {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  #survey div.col-md-6:nth-child(4n+1) .progress-bar{
+    background-color: #50B967;
+  }
+  #survey div.col-md-6:nth-child(4n+2) .progress-bar {
+    background-color: #55C0DB;
+  }
+  #survey div.col-md-6:nth-child(4n+3) .progress-bar {
+    background-color: #F1AD5D;
+  }
+  #survey div.col-md-6:nth-child(4n+4) .progress-bar {
+    background-color: #DD5152;
+  }
+  
+  .colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+#optList li:hover a.removeOpt{
+  display: inline-block;
+}
+
+a.removeOpt{
+  margin-left: 10px;
+  display: none;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+  
