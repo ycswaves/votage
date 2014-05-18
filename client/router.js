@@ -7,7 +7,7 @@ Router.configure({
 //   isLoggedIn: function() {
 //     if (!(Meteor.loggingIn() || Meteor.user())) {
 //       this.redirect('home');
-//       this.stop(); 
+//       this.stop();
 //     }
 //   }
 // }
@@ -29,7 +29,7 @@ Router.map(function () {
   this.route('vote',{
   	path: '/vote/:_id',
   	template: 'vote',
-    before: function () {
+    onBeforeAction: function () {
       var handle = Meteor.subscribe('votes');
       if (handle.ready()) {
         NProgress.done();
@@ -56,7 +56,7 @@ Router.map(function () {
       }else{
         return null;
       }
-      templateData = { 
+      templateData = {
         vote: theVote
       };
       return templateData;

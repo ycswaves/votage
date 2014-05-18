@@ -2,18 +2,24 @@
 	<div class="container">
 		<div class="col-md-6">
 
-				<form role="form">
+				<form id="createVote" role="form">
 					<fieldset>
 						<div class="form-group">
 					    <label><h3>Please give a title for your survey</h3></label>
 					    <input type="text" class="form-control" name="title" placeholder="e.g Our next meet up">
+              <div class="form-error" style="display:none">
+                <span class="help-block bg-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span>* This field is required</span>
+              </div>
 					  </div>
 						<hr class="colorgraph">
 						<div class="form-group">
               <textarea class="form-control" name="question" placeholder="e.g Where do we meet?" rows="2"></textarea>
+              <div class="form-error" style="display:none">
+                <span class="help-block bg-danger">* This field is required</span>
+              </div>
 						</div>
-							<ol id="optList">
-							</ol>
+						<ol id="optList">
+						</ol>
 						<div class="form-group">
               <div class="input-group col-md-6">
 					      <input type="text" name="option" class="form-control" placeholder="option...">
@@ -21,6 +27,9 @@
 					        <button class="btn btn-primary" id="addOpt" type="button">Add</button>
 					      </span>
 					    </div><!-- /input-group -->
+              <div class="form-error" style="display: none">
+                <span class="help-block bg-danger">* Please provide options for your question</span>
+              </div>
 						</div>
             <div class="form-group">
               <button class="btn btn-success" id="addQn">Add Another Question</button>

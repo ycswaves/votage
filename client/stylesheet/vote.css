@@ -26,8 +26,8 @@
   #survey .vote {
     font-family: "Yanone Kaffeesatz", Georgia, serif;
     line-height: 30px;
-    margin-top: 18px; 
-    /* (( 110[height .progress] - 92[height .btn-lg .vote] ) / 2 ) 
+    margin-top: 18px;
+    /* (( 110[height .progress] - 92[height .btn-lg .vote] ) / 2 )
     + 20px margin-top .progress */
   }
 
@@ -62,7 +62,7 @@
   #survey div.col-md-6:nth-child(4n+4) .progress-bar {
     background-color: #DD5152;
   }
-  
+
   .colorgraph {
     height: 5px;
     border-top: 0;
@@ -85,4 +85,7 @@ a.removeOpt{
   text-decoration: none;
   cursor: pointer;
 }
-  
+
+.glyphicon{
+  margin: 0px 3px;
+}

@@ -1,4 +1,4 @@
-Votes_local = new Meteor.Collection("votes_local",{connection: null});
+Votes_local = new Meteor.Collection('votes_local', {connection: null});
 
 Template.createVote.helpers({
   questions: function(){
@@ -8,17 +8,17 @@ Template.createVote.helpers({
 
 
 Template.createVote.events({
-	'optList': undefined,
-
 	'click #addOpt': function(e,t){
 		e.preventDefault();
 		var addOption = t.find('input[name="option"]');
 		if(undefined == this.opl){
 			this.optList = t.find('#optList');
 		}
-		var dismissBtn = '<a class="removeOpt">×</a>';
-		$(optList).append('<li><span>'+addOption.value.trim()+'</span>'+dismissBtn+'</li>');
-		$(addOption).val('');
+    if(addOption.value.trim().length > 0){
+  		var dismissBtn = '<span class="glyphicon glyphicon-remove removeOpt" style="cursor: pointer; margin-left:10px"></span>';
+  		$(optList).append('<li><span class="optVal">'+addOption.value.trim()+'</span>'+dismissBtn+'</li>');
+  		$(addOption).val('');
+    }
 	},
 
 	'click .removeOpt': function(e,t){
@@ -31,19 +31,34 @@ Template.createVote.events({
       this.optList = t.find('#optList');
     }
     var optionCountList = [];
-    $('li span',this.optList).each(function(){
+    $('li span.optVal',this.optList).each(function(){
       optionCountList.push({
         option: $(this).text(),
         count: 0
       })
     });
-    var qnContent = t.find('textarea[name="question"]')
-      , questionObj = {
+
+    var qnSelector = 'textarea[name="question"]'
+      , qnContent = t.find(qnSelector);
+    //todo: validate qnContent and questionObj
+    if(false == checkInput(qnSelector)){
+      return false;
+    }
+
+    var errDiv = $('input[name="option"]').parent().siblings('.form-error');
+    if(optionCountList.length < 1){
+      errDiv.show();
+      return false;
+    }
+    else{
+      errDiv.hide();
+    }
+    var questionObj = {
           question: qnContent.value.trim(),
           optionCount: optionCountList
         };
 
-    //todo: validate qnContent and questionObj
+
 
     Votes_local.insert(questionObj,function(err, result){
       if(err){
@@ -62,7 +77,7 @@ Template.createVote.events({
 		}
 		var optionCountList = [];
 		//var listTxt = $('li span',this.optList).text().trim();
-		$('li span',this.optList).each(function(){
+		$('li span.optVal',this.optList).each(function(){
 			optionCountList.push({
 				option: $(this).text(),
 				count: 0
@@ -94,3 +109,14 @@ Template.createVote.events({
 		}
 	}
 });
+
+function checkInput(selector){
+  var input = $('#createVote '+selector);
+  if(input.val().trim().length <= 0){
+    input.parent().find('.form-error').show();
+    return false;
+  }
+  input.parent().find('.form-error').hide();
+  return true;
+}
+
