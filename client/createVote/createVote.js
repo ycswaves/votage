@@ -76,26 +76,47 @@ Template.createVote.events({
 			this.optList = t.find('#optList');
 		}
 		var optionCountList = [];
-		//var listTxt = $('li span',this.optList).text().trim();
 		$('li span.optVal',this.optList).each(function(){
 			optionCountList.push({
 				option: $(this).text(),
 				count: 0
 			})
 		});
-		var qnContent = t.find('textarea[name="question"]').value.trim()
-			, surveyTitle = t.find('input[name="title"]').value.trim();
 
-		//TODO: do validation at this point
+		var qnSelector = 'textarea[name="question"]'
+      , qnContent = t.find(qnSelector).value.trim()
+      , titleSelector = 'input[name="title"]'
+			, surveyTitle = t.find(titleSelector).value.trim();
+
+    var qnCursor = Votes_local.find()
+      , hasDirectInput = false // flag true if there is content on form
+      , voteDetails = [];
+    if(qnCursor.count() <= 0){
+      if(!checkInput(qnSelector) || !checkInput(titleSelector)){
+        return false;
+      }
+      else{
+        hasDirectInput = true;
+      }
+    }
+    else{ // insert local questions into survey
+      qnCursor.fetch().forEach(function(e){
+        voteDetails.push(e);
+      });
+    }
+
+    if(hasDirectInput){
+      voteDetails.push(
+        { question: qnContent, optionCount: optionCountList }
+      );
+    }
+
 
 		var vote = {
 			creator: 'anonymous',
 			title: surveyTitle,
 			createdAt: new Date(),
-			details:[{
-				question: qnContent,
-				optionCount: optionCountList
-			}],
+			details:voteDetails,
 		}
 		var newVoteID = Votes.insert(vote, function(err, result){
 			if(err){
